@@ -1,0 +1,693 @@
+:root {
+    /* Colors */
+    --primary-color: #00A6FF;
+    /* Brighter Blue for Dark Mode */
+    --primary-dim: #005BAC;
+    --primary-dark: #004481;
+    --accent-color: #D32F2F;
+    --text-color: #F8F9FA;
+    /* Light Text */
+    --text-light: #CCCCCC;
+    --bg-dark: #0a192f;
+    --white: #FFFFFF;
+    --border-color: rgba(255, 255, 255, 0.1);
+    --glass-bg: rgba(255, 255, 255, 0.05);
+
+    /* Spacing */
+    --container-width: 1200px;
+    --section-padding: 40px 0;
+    /* Reduced from 80px */
+
+    /* Transitions */
+    --transition-base: all 0.3s ease;
+}
+
+/* Reset & Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
+    color: var(--text-color);
+    line-height: 1.6;
+    background-color: #001220;
+    /* Fallback */
+    /* Deep Democratic Blue Gradient - Fixed Background */
+    background: radial-gradient(circle at center, #004080 0%, #001220 100%);
+    background-attachment: fixed;
+    overflow-x: hidden;
+}
+
+/* Global Fixed Canvas */
+.global-bg-animation {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    pointer-events: none;
+}
+
+.global-bg-animation canvas {
+    display: block;
+}
+
+div,
+section {
+    /* Ensure z-index context works with fixed bg */
+    position: relative;
+    z-index: 1;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: var(--transition-base);
+}
+
+ul {
+    list-style: none;
+}
+
+button {
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-family: inherit;
+}
+
+.container {
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.skip-link {
+    position: absolute;
+    top: -100px;
+    left: 0;
+    background: var(--primary-color);
+    color: white;
+    padding: 10px 20px;
+    z-index: 9999;
+}
+
+.skip-link:focus {
+    top: 0;
+}
+
+/* Typography */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: 700;
+    line-height: 1.3;
+    margin-bottom: 1rem;
+    color: var(--white);
+}
+
+.text-primary {
+    color: var(--primary-color);
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-highlight {
+    color: var(--primary-color);
+    text-shadow: 0 0 20px rgba(0, 166, 255, 0.3);
+}
+
+/* Buttons */
+.btn {
+    display: inline-block;
+    padding: 12px 24px;
+    border-radius: 4px;
+    font-weight: 600;
+    text-align: center;
+    transition: var(--transition-base);
+}
+
+.btn-primary {
+    background-color: var(--primary-dim);
+    color: var(--white);
+    border: 1px solid var(--primary-dim);
+    box-shadow: 0 4px 15px rgba(0, 91, 172, 0.4);
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 166, 255, 0.5);
+}
+
+.btn-outline {
+    background-color: transparent;
+    color: var(--white);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.btn-outline:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-color: var(--white);
+}
+
+.btn-lg {
+    padding: 15px 32px;
+    font-size: 1.1rem;
+}
+
+/* Navbar - Glassmorphism */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 18, 32, 0.7);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    z-index: 1000;
+    padding: 15px 0;
+    transition: var(--transition-base);
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 1.25rem;
+    font-weight: 700;
+}
+
+.logo-name {
+    color: var(--primary-color);
+}
+
+.logo-role {
+    color: var(--text-light);
+    font-size: 0.9em;
+    font-weight: 500;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.nav-links a:not(.btn) {
+    font-weight: 500;
+    position: relative;
+    color: var(--text-color);
+    opacity: 0.8;
+}
+
+.nav-links a:not(.btn):hover {
+    color: var(--primary-color);
+    opacity: 1;
+}
+
+/* Hero Section */
+.hero-section {
+    position: relative;
+    /* Reduced height or flexible based on content for tight packing */
+    height: auto;
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--white);
+    overflow: hidden;
+    padding-top: 60px;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    padding: 20px 0;
+    /* Minimized padding */
+}
+
+.hero-subtitle {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    /* Reduced */
+    font-weight: 300;
+    letter-spacing: 2px;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.hero-title {
+    font-size: 3.5rem;
+    margin-bottom: 1.5rem;
+    /* Reduced */
+    line-height: 1.1;
+    /* Reduced */
+    font-weight: 800;
+}
+
+.hero-actions {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+/* Sections General */
+.section {
+    padding: var(--section-padding);
+}
+
+.section-header {
+    margin-bottom: 3rem;
+}
+
+.section-title {
+    font-size: 2.2rem;
+    margin-bottom: 0.5rem;
+}
+
+.section-desc {
+    color: var(--text-light);
+    font-size: 1.1rem;
+}
+
+/* Glassmorphism Card Style - Reusable */
+.card,
+.donation-box,
+.transparency-box,
+.profile-wrapper {
+    background: var(--glass-bg);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--border-color);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    color: var(--white);
+}
+
+/* Main Info Grid (Donation + Transparency) */
+.main-info-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    align-items: stretch;
+}
+
+/* Transparency Box Styles */
+.transparency-box {
+    padding: 20px;
+    border-radius: 16px;
+    height: 100%;
+}
+
+.transparency-box h3 {
+    margin-bottom: 20px;
+    text-align: center;
+    color: var(--primary-color);
+    font-size: 1.5rem;
+}
+
+.disclaimer-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.disclaimer-item {
+    background: rgba(0, 0, 0, 0.2);
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.disclaimer-item p {
+    font-size: 0.95rem;
+    color: #ccc;
+    line-height: 1.4;
+    margin: 0;
+}
+
+.disclaimer-item strong {
+    color: var(--white);
+    display: block;
+    margin-bottom: 4px;
+}
+
+/* About Grid */
+.about-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.about-card {
+    padding: 40px 30px;
+    border-radius: 12px;
+    text-align: center;
+    transition: var(--transition-base);
+}
+
+.about-card:hover {
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.08);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+.icon-box {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+.about-card h3 {
+    margin-bottom: 15px;
+    color: var(--primary-color);
+}
+
+.about-card p {
+    color: var(--text-light);
+    word-break: keep-all;
+}
+
+/* Profile Section */
+.profile-wrapper {
+    display: grid;
+    grid-template-columns: 0.8fr 1.2fr;
+    gap: 50px;
+    align-items: center;
+    padding: 50px;
+    border-radius: 20px;
+}
+
+.img-placeholder {
+    width: 100%;
+    height: 400px;
+    background-color: rgba(255, 255, 255, 0.05);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 12px;
+    color: rgba(255, 255, 255, 0.3);
+    font-weight: 600;
+    border: 1px dashed rgba(255, 255, 255, 0.1);
+}
+
+/* Party Identity Block */
+.party-identity {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.party-logo {
+    display: block;
+    width: auto;
+    height: 40px;
+    /* Fixed height for alignment */
+}
+
+.party-name {
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: var(--white);
+    letter-spacing: -0.5px;
+}
+
+.profile-img-main {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.role-badge {
+    background-color: var(--primary-dim);
+    box-shadow: 0 2px 10px rgba(0, 91, 172, 0.3);
+    color: white;
+    font-size: 0.5em;
+    padding: 4px 8px;
+    border-radius: 4px;
+    vertical-align: middle;
+    margin-left: 10px;
+    position: relative;
+    top: -2px;
+}
+
+.career-list {
+    margin: 20px 0 30px 0;
+}
+
+.career-list li {
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+    color: var(--text-color);
+}
+
+.philosophy {
+    font-size: 1.15rem;
+    line-height: 1.8;
+    color: var(--text-light);
+    font-style: italic;
+    padding-left: 20px;
+    border-left: 4px solid var(--primary-color);
+}
+
+/* Donation Section */
+.donation-box {
+    /* Height match with grid */
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    max-width: none;
+    margin: 0;
+    border-radius: 16px;
+    overflow: hidden;
+}
+
+.bank-info {
+    padding: 30px 20px;
+    text-align: center;
+}
+
+.bank-info .label {
+    font-size: 0.9rem;
+    color: var(--text-light);
+    margin-bottom: 5px;
+}
+
+.account-number-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin: 10px 0 15px 0;
+    flex-wrap: wrap;
+}
+
+.bank-name {
+    font-weight: 700;
+    color: var(--primary-color);
+    font-size: 1.5rem;
+}
+
+.account-number {
+    font-size: 1.8rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: var(--white);
+}
+
+.btn-copy {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: var(--white);
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    transition: var(--transition-base);
+}
+
+.btn-copy:hover {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: var(--white);
+}
+
+.account-owner {
+    font-weight: 500;
+    color: var(--text-light);
+}
+
+.tax-benefit {
+    padding: 20px;
+    border-top: 1px solid var(--border-color);
+    background: rgba(0, 91, 172, 0.1);
+}
+
+.tax-benefit h4 {
+    color: var(--primary-color);
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.tax-benefit ul li {
+    position: relative;
+    padding-left: 15px;
+    margin-bottom: 6px;
+    font-size: 0.95rem;
+    color: var(--text-light);
+}
+
+.tax-benefit ul li::before {
+    content: '•';
+    color: var(--primary-color);
+    position: absolute;
+    left: 0;
+}
+
+/* Footer & Other utils */
+.footer {
+    padding: 40px 0;
+    background-color: rgba(0, 0, 0, 0.3);
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    font-size: 0.9rem;
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 15px;
+}
+
+.footer-logo {
+    font-weight: 700;
+    color: var(--primary-dim);
+    font-size: 1.2rem;
+}
+
+.footer-info p {
+    margin-bottom: 5px;
+    color: #666;
+}
+
+/* Toast Notification */
+.toast {
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(255, 255, 255, 0.9);
+    color: #000;
+    padding: 12px 24px;
+    border-radius: 30px;
+    z-index: 2000;
+    transition: opacity 0.3s, transform 0.3s;
+    font-weight: 600;
+}
+
+.toast.hidden {
+    opacity: 0;
+    pointer-events: none;
+    transform: translate(-50%, 20px);
+}
+
+/* Animations */
+.scroll-reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease-out;
+}
+
+.scroll-reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.fade-in-up {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.8s forwards;
+}
+
+.delay-1 {
+    animation-delay: 0.2s;
+    transition-delay: 0.2s;
+}
+
+.delay-2 {
+    animation-delay: 0.4s;
+    transition-delay: 0.4s;
+}
+
+.delay-3 {
+    animation-delay: 0.6s;
+    transition-delay: 0.6s;
+}
+
+.delay-4 {
+    animation-delay: 0.8s;
+    transition-delay: 0.8s;
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Queries */
+@media (max-width: 900px) {
+    .main-info-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .sm-hidden {
+        display: none;
+    }
+
+    .hero-title {
+        font-size: 2.2rem;
+    }
+
+    .about-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .profile-wrapper {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        padding: 30px;
+    }
+
+    .img-placeholder {
+        height: 300px;
+    }
+
+    .account-number {
+        font-size: 1.4rem;
+    }
+}

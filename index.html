@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>울산 중구의원 안영호 후원회 | 시민과 함께하는 정치</title>
+    <meta name="description" content="더불어민주당 울산 중구의원 안영호 공식 후원회 홈페이지입니다. 시민과 함께하는 정치, 투명한 후원으로 응원해주세요.">
+    <meta property="og:title" content="울산 중구의원 안영호 후원회">
+    <meta property="og:description" content="시민과 함께하는 바른 정치, 안영호와 함께 만들어주세요.">
+    <meta property="og:type" content="website">
+
+    <!-- Fonts: Pretendard CDN -->
+    <link rel="stylesheet" as="style" crossorigin
+        href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <!-- Accessibility Skip Link -->
+    <a href="#main-content" class="skip-link">본문 바로가기</a>
+
+    <!-- Global Background Animation -->
+    <div class="global-bg-animation" id="global-canvas-container"></div>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <a href="#" class="logo">
+                <span class="logo-name">안영호</span>
+                <span class="logo-role">후원회</span>
+            </a>
+            <div class="nav-links">
+                <a href="#donate">후원하기</a>
+                <a href="#profile">프로필</a>
+                <a href="#about">소개</a>
+            </div>
+        </div>
+    </nav>
+
+    <main id="main-content">
+        <!-- Hero Section -->
+        <section id="hero" class="hero-section">
+            <div class="container hero-content">
+                <p class="hero-subtitle fade-in-up delay-1">시민과 함께하는 든든한 일꾼</p>
+                <h1 class="hero-title fade-in-up delay-2">
+                    <span class="text-highlight">안영호</span>와 함께<br>
+                    울산 중구의 <br class="mobile-only">내일을 여십시오
+                </h1>
+                <div class="hero-actions fade-in-up delay-3">
+                    <a href="#donate" class="btn btn-primary btn-lg">후원참여 안내</a>
+                    <a href="#profile" class="btn btn-outline btn-lg">의정 철학 보기</a>
+                </div>
+            </div>
+            <!-- Scroll Indicator and Mouse Removed -->
+        </section>
+
+        <!-- Main Info Grid Section: Donation & Transparency Side-by-Side -->
+        <section id="donate" class="section main-info-section">
+            <div class="container">
+                <div class="section-header text-center scroll-reveal">
+                    <h2 class="section-title text-primary">후원 안내</h2>
+                    <p class="section-desc">여러분의 후원이 깨끗한 정치의 밑거름이 됩니다.</p>
+                </div>
+
+                <div class="main-info-grid">
+                    <!-- Donation Box -->
+                    <div class="donation-box scroll-reveal">
+                        <div class="bank-info">
+                            <p class="label">후원계좌</p>
+                            <div class="account-number-wrapper">
+                                <span class="bank-name">농협</span>
+                                <span class="account-number" id="accountNum">301-0505-5835-31</span>
+                                <button class="btn-copy" onclick="copyToClipboard()" aria-label="계좌번호 복사">
+                                    복사하기
+                                </button>
+                            </div>
+                            <p class="account-owner">예금주: 중구의회의원안영호후원회</p>
+                        </div>
+
+                        <div class="tax-benefit">
+                            <h4>💰 세액공제 혜택 안내</h4>
+                            <ul>
+                                <li><strong>10만원 이하:</strong> 전액 세액공제</li>
+                                <li><strong>10만원 초과:</strong> 15% 세액공제</li>
+                                <li>연간 100만원 한도 내 후원 가능</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Transparency / Disclaimer -->
+                    <div class="transparency-box scroll-reveal delay-1">
+                        <h3>📌 후원 시 유의사항</h3>
+                        <div class="disclaimer-list">
+                            <div class="disclaimer-item">
+                                <p><strong>후원 자격</strong><br>본인 명의로만 후원이 가능합니다. (공무원, 교사, 법인, 단체, 외국인 후원 불가)</p>
+                            </div>
+                            <div class="disclaimer-item">
+                                <p><strong>영수증 발급</strong><br>후원후 010-5498-0872로 이름/주민번호/전화번호/집주소를 문자로 보내주세요.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Profile Section -->
+        <section id="profile" class="section profile-section">
+            <div class="container">
+                <div class="profile-wrapper">
+                    <div class="profile-image scroll-reveal">
+                        <!-- Party Identity -->
+                        <div class="party-identity">
+                            <img src="images/party-logo.png" alt="더불어민주당 로고" class="party-logo">
+                            <span class="party-name">더불어민주당</span>
+                        </div>
+                        <!-- Profile Image -->
+                        <img src="images/profile.jpg" alt="안영호 의원 프로필 사진" class="profile-img-main">
+                    </div>
+                    <div class="profile-text scroll-reveal delay-1">
+                        <h2 class="section-title">안영호 <span class="role-badge">울산 중구의원</span></h2>
+                        <ul class="career-list">
+                            <li><strong>현)</strong> 제8대 울산광역시 중구의회 의원</li>
+                            <li><strong>현)</strong> 더불어민주당 울산시당 대변인</li>
+                            <li><strong>전)</strong> 더불어민주당 울산 중구지역위원회 사무국장</li>
+                            <li>울산대학교 행정학 박사 수료</li>
+                        </ul>
+                        <p class="philosophy">
+                            "말보다는 행동으로, 약속보다는 실천으로 보여드리겠습니다.<br>
+                            주민 여러분의 목소리가 곧 조례가 되고 정책이 되는,<br>
+                            체감할 수 있는 생활 정치를 실현하겠습니다."
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Intro Section (Moved to bottom) -->
+        <section id="about" class="section about-section">
+            <div class="container">
+                <div class="section-header text-center scroll-reveal">
+                    <h2 class="section-title">후원회 소개</h2>
+                    <p class="section-desc">깨끗한 정치, 투명한 후원으로 시작됩니다.</p>
+                </div>
+                <div class="about-grid">
+                    <div class="card about-card scroll-reveal">
+                        <div class="icon-box">🤝</div>
+                        <h3>시민과 함께</h3>
+                        <p>안영호의 정치는 언제나 시민 곁에 있습니다.<br>여러분의 작은 정성이 더 큰 변화를 만듭니다.</p>
+                    </div>
+                    <div class="card about-card scroll-reveal delay-1">
+                        <div class="icon-box">🔍</div>
+                        <h3>투명한 운영</h3>
+                        <p>정치자금법을 철저히 준수하며,<br>모든 후원 내역은 투명하게 관리됩니다.</p>
+                    </div>
+                    <div class="card about-card scroll-reveal delay-2">
+                        <div class="icon-box">🚀</div>
+                        <h3>중구의 미래</h3>
+                        <p>살고 싶은 중구, 머물고 싶은 중구를<br>만들기 위한 의정 활동에 전념하겠습니다.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p class="copyright">© 2025 중구의회의원 안영호 후원회. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <div id="toast" class="toast hidden">계좌번호가 복사되었습니다.</div>
+
+    <script src="js/script.js"></script>
+</body>
+
+</html>
