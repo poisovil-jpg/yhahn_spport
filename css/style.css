@@ -452,13 +452,120 @@ h6 {
 }
 
 .career-list {
-    margin: 20px 0 30px 0;
+    margin: 15px 0 25px 0;
 }
 
 .career-list li {
-    margin-bottom: 10px;
-    font-size: 1.1rem;
+    margin-bottom: 8px;
+    font-size: 1.05rem;
     color: var(--text-color);
+    padding-left: 10px;
+    border-left: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+.profile-info-group {
+    margin-bottom: 25px;
+    background: rgba(255, 255, 255, 0.03);
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.profile-info-group p {
+    margin-bottom: 8px;
+    color: var(--text-light);
+    font-size: 1.0rem;
+}
+
+.profile-info-group strong {
+    color: var(--primary-color);
+    margin-right: 8px;
+}
+
+.profile-subheading {
+    /* Legacy style kept just in case, but replaced by buttons below */
+    color: var(--white);
+    font-size: 1.2rem;
+    margin-top: 25px;
+    margin-bottom: 12px;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 8px;
+    display: inline-block;
+}
+
+/* Profile Toggle Styles */
+.profile-toggle-btn {
+    width: 100%;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid var(--border-color);
+    color: var(--white);
+    padding: 15px 0;
+    text-align: left;
+    font-size: 1.2rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+    transition: color 0.3s;
+}
+
+.profile-toggle-btn:hover {
+    color: var(--primary-color);
+}
+
+.profile-toggle-btn span {
+    display: flex;
+    align-items: center;
+}
+
+.arrow-icon {
+    font-size: 0.8rem;
+    margin-right: 8px;
+    transition: transform 0.3s ease;
+    font-style: normal;
+    display: inline-block;
+}
+
+.profile-toggle-btn.active .arrow-icon {
+    transform: rotate(180deg);
+}
+
+.profile-toggle-btn .toggle-icon {
+    font-size: 1.5rem;
+    font-weight: 300;
+}
+
+.profile-toggle-content {
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 0.4s ease-out;
+    opacity: 0.8;
+    /* Slightly dim initially/during transition if desired, or keep 1 */
+}
+
+.profile-toggle-content.expanded {
+    /* max-height handled inline or via JS for smooth animation, 
+       but we set a large enough value in styles or inline for 'open by default' */
+    opacity: 1;
+    margin-bottom: 20px;
+}
+
+/* 2-Column Grid for Career List */
+.career-list.grid-2-col {
+    display: grid;
+    grid-template-columns: 1fr;
+    /* Default mobile 1 column */
+    gap: 10px;
+}
+
+@media (min-width: 768px) {
+    .career-list.grid-2-col {
+        grid-template-columns: 1fr 1fr;
+        /* Tablet/Desktop 2 columns */
+        column-gap: 30px;
+    }
 }
 
 .philosophy {

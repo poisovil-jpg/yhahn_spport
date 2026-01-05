@@ -164,12 +164,31 @@ function copyToClipboard() {
 }
 
 // Toast Notification
-function showToast(message) {
+function showToast() {
     const toast = document.getElementById('toast');
-    toast.innerText = message;
+    toast.classList.add('show');
     toast.classList.remove('hidden');
 
     setTimeout(() => {
+        toast.classList.remove('show');
         toast.classList.add('hidden');
     }, 3000);
+}
+
+// Profile Section Toggle
+function toggleProfileSection(button) {
+    const content = button.nextElementSibling;
+    const icon = button.querySelector('.toggle-icon');
+
+    if (content.style.maxHeight) {
+        // Collapse
+        content.style.maxHeight = null;
+        icon.textContent = '+';
+        button.classList.remove('active');
+    } else {
+        // Expand
+        content.style.maxHeight = content.scrollHeight + "px";
+        icon.textContent = '−';
+        button.classList.add('active');
+    }
 }
