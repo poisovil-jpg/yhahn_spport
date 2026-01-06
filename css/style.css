@@ -799,6 +799,54 @@ h6 {
     animation: fadeInUp 0.8s forwards;
 }
 
+/* Related News Section */
+#related-news .news-box {
+    background: #ffffff;
+    border-radius: 8px;
+    padding: 16px;
+    max-width: 600px;
+    margin: 0 auto;
+    /* Centering added */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    color: #333;
+    /* Ensure text is readable on white */
+}
+
+#related-news h3 {
+    margin-top: 0;
+    font-size: 18px;
+    color: #333;
+    /* Override global white h3 */
+}
+
+#related-news ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#related-news li {
+    margin-bottom: 10px;
+    line-height: 1.4;
+    color: #333;
+}
+
+#related-news a {
+    color: #1a73e8;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+#related-news a:hover {
+    text-decoration: underline;
+}
+
+#related-news .time {
+    font-size: 12px;
+    color: #666;
+    margin-top: 10px;
+}
+
 .delay-1 {
     animation-delay: 0.2s;
     transition-delay: 0.2s;

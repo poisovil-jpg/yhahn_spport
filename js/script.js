@@ -192,3 +192,61 @@ function toggleProfileSection(button) {
         button.classList.add('active');
     }
 }
+
+// Related News Fetcher
+(function () {
+    const KEYWORD = "안영호 의원";
+    const MAX_ITEMS = 5;
+    const REFRESH_INTERVAL = 60000;
+
+    const listEl = document.getElementById("news-list");
+    const timeEl = document.getElementById("update-time");
+
+    function loadNews() {
+        const rssUrl =
+            "https://news.google.com/rss/search?q=" +
+            encodeURIComponent(KEYWORD) +
+            "&hl=ko&gl=KR&ceid=KR:ko";
+
+        const proxyUrl =
+            "https://corsproxy.io/?" + encodeURIComponent(rssUrl);
+
+        fetch(proxyUrl)
+            .then(res => res.text())
+            .then(text => {
+                const parser = new DOMParser();
+                const xml = parser.parseFromString(text, "text/xml");
+                const items = xml.querySelectorAll("item");
+
+                if (items.length === 0) {
+                    listEl.innerHTML = "<li>관련 뉴스가 없습니다.</li>";
+                    return;
+                }
+
+                listEl.innerHTML = "";
+
+                items.forEach((item, i) => {
+                    if (i >= MAX_ITEMS) return;
+
+                    const title = item.querySelector("title").textContent;
+                    const link = item.querySelector("link").textContent;
+
+                    const li = document.createElement("li");
+                    li.innerHTML = `<a href="${link}" target="_blank" rel="noopener">${title}</a>`;
+                    listEl.appendChild(li);
+                });
+
+                timeEl.textContent =
+                    "마지막 갱신: " + new Date().toLocaleTimeString();
+            })
+            .catch(() => {
+                listEl.innerHTML = "<li>뉴스 로딩 실패</li>";
+            });
+    }
+
+    // Initial load
+    if (listEl) {
+        loadNews();
+        setInterval(loadNews, REFRESH_INTERVAL);
+    }
+})();
